@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "850890488970",
+    "project_id": "lafbazai-64d10",
+    "storage_bucket": "lafbazai-64d10.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850890488970:android:4c089f5d72012972288173",
+        "android_client_info": {
+          "package_name": "com.kemal.lafbazai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAO7JyuwAnNfkTmB93pz-3zHJFvGfc5FKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
