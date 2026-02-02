@@ -1,7 +1,7 @@
 {
     "appTitle": "Lafbaz.ai",
     "welcomeTitle": "Selam Lafbaz! 👋",
-    "welcomeSubtitle": "Kimi kilitliyoruz?",
+    "welcomeSubtitle": "Hangi mesajı inceliyoruz?",
     "uploadText": "Ekran Görüntüsünü\nBuraya Bırak",
     "uploadSubText": "Whatsapp, Instagram veya DM...",
     "modeSelection": "Modun Nedir? 🔥",
@@ -65,5 +65,8 @@
     "profile_save": "Değişiklikleri Kaydet",
     "profile_delete_account": "Hesabımı Sil",
     "profile_delete_desc": "Bu işlem geri alınamaz.",
-    "profile_photo_edit": "Düzenle"
+    "profile_photo_edit": "Düzenle",
+    "text_area_hint": "Mesajı buraya yapıştır veya yaz...",
+    "settings_section_general": "Genel",
+    "settings_section_support": "Destek & Yasal"
 }

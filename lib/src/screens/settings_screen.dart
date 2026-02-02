@@ -37,8 +37,8 @@ class SettingsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         physics: const BouncingScrollPhysics(),
         children: [
-          // --- 1. BÖLÜM: DİL VE GÖRÜNÜM ---
-          _buildSectionHeader("Genel"),
+          _buildSectionHeader("settings_section_general".tr()),
+
           FadeInUp(
             duration: const Duration(milliseconds: 500),
             child: _buildLanguageCard(context, primaryColor),
@@ -73,8 +73,8 @@ class SettingsScreen extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // --- 3. BÖLÜM: DESTEK VE YASAL (Mağaza için Önemli) ---
-          _buildSectionHeader("Destek & Yasal"),
+          _buildSectionHeader("settings_section_support".tr()),
+
           FadeInUp(
             delay: const Duration(milliseconds: 200),
             duration: const Duration(milliseconds: 500),
@@ -100,11 +100,9 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 _buildSettingsTile(
                   icon: Icons.privacy_tip_outlined,
-                  title: "pro_privacy".tr(), // Gizlilik Politikası
+                  title: "pro_privacy".tr(),
                   color: Colors.purpleAccent,
-                  onTap: () {
-                    // Webview aç
-                  },
+                  onTap: () {},
                 ),
               ],
             ),
@@ -124,14 +122,12 @@ class SettingsScreen extends StatelessWidget {
               color: Colors.redAccent,
               isDestructive: true,
               onTap: () {
-                context.router.replaceAll([LoginRoute()]);
+                context.router.replaceAll([const LoginRoute()]);
               },
             ),
           ),
 
           const SizedBox(height: 40),
-
-          // Versiyon Bilgisi (Profesyonel durur)
           Center(
             child: Text(
               "v1.0.0",

@@ -32,7 +32,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   bool _isBannerLoaded = false;
   InterstitialAd? _interstitialAd;
 
-  // Test ID'leri (Canlıya geçerken kendi ID'lerini koy)
+  // Test ID'leri
   final String _bannerUnitId = 'ca-app-pub-3940256099942544/6300978111';
   final String _interstitialUnitId = 'ca-app-pub-3940256099942544/1033173712';
 
@@ -40,11 +40,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
-
-    // Sadece Pro değilse reklamları yükle
-    // Not: initState içinde ref.read/watch sağlıklı çalışmayabilir,
-    // bu yüzden yüklemeyi build içinde kontrol etmek veya postFrameCallback kullanmak daha güvenlidir.
-    // Ancak basitlik adına burada başlatıyoruz, build içinde pro kontrolü yapacağız.
     _loadBannerAd();
     _loadInterstitialAd();
   }
@@ -72,7 +67,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
               FullScreenContentCallback(
                 onAdDismissedFullScreenContent: (ad) {
                   ad.dispose();
-                  _loadInterstitialAd(); // Kapatılınca yenisini yükle
+                  _loadInterstitialAd();
                 },
                 onAdFailedToShowFullScreenContent: (ad, error) {
                   ad.dispose();
@@ -102,6 +97,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     final Color primaryColor = const Color(0xFF6C63FF);
     final Color secondaryColor = const Color(0xFFFF6584);
     final Color backgroundColor = const Color(0xFFF3F5F9);
+    final Color titleColor = const Color(0xFF2D3142); // Başlık için koyu renk
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -130,59 +126,61 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 1. HEADER
+                  // 1. HEADER (DÜZENLENMİŞ KISIM)
                   FadeInDown(
                     duration: const Duration(milliseconds: 600),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Row(
-                          children: [
-                            Builder(
-                              builder: (context) => GestureDetector(
-                                onTap: () => Scaffold.of(context).openDrawer(),
-                                child: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 10,
-                                      ),
-                                    ],
+                        // MENU BUTTON
+                        Builder(
+                          builder: (context) => GestureDetector(
+                            onTap: () => Scaffold.of(context).openDrawer(),
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.05),
+                                    blurRadius: 10,
+                                    offset: const Offset(0, 2),
                                   ),
-                                  child: const Icon(
-                                    Icons.menu_rounded,
-                                    size: 28,
-                                  ),
-                                ),
+                                ],
+                              ),
+                              child: const Icon(
+                                Icons.menu_rounded,
+                                size: 26,
+                                color: Colors.black87,
                               ),
                             ),
-                            const SizedBox(width: 16),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "welcomeTitle".tr(),
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 14,
-                                    color: Colors.grey.shade500,
-                                  ),
-                                ),
-                                Text(
-                                  "welcomeSubtitle".tr(),
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black87,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                          ),
                         ),
+
+                        const SizedBox(width: 16),
+
+                        // TEXT AREA (EXPANDED İLE OVERFLOW ENGELLENDİ)
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "welcomeTitle".tr(),
+                                style: GoogleFonts.poppins(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        const SizedBox(width: 12),
+
+                        // HISTORY BUTTON
                         InkWell(
                           onTap: () =>
                               context.router.push(const HistoryRoute()),
@@ -202,7 +200,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                             ),
                             child: Icon(
                               Icons.history_rounded,
-                              size: 26,
+                              size: 28,
                               color: primaryColor,
                             ),
                           ),
@@ -263,8 +261,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                   ),
 
                   const SizedBox(height: 20),
-
-                  // 3. TAB VIEW
                   Expanded(
                     child: ZoomIn(
                       duration: const Duration(milliseconds: 500),
@@ -341,13 +337,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                             color: Colors.grey.shade700,
                                           ),
                                         ),
-                                        Text(
-                                          "Yüklemek için dokun",
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 12,
-                                            color: Colors.grey.shade400,
-                                          ),
-                                        ),
                                       ],
                                     ),
                             ),
@@ -377,8 +366,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                     maxLines: null,
                                     expands: true,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          "Mesajı buraya yapıştır veya yaz...",
+                                      hintText: "text_area_hint".tr(),
                                       hintStyle: GoogleFonts.poppins(
                                         color: Colors.grey.shade300,
                                         fontSize: 18,
@@ -513,7 +501,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
                   const SizedBox(height: 24),
 
-                  // 5. AKSİYON BUTONU (SABİT - Sadece Giriş Animasyonu Var)
+                  // 5. AKSİYON BUTONU
                   FadeInUp(
                     delay: const Duration(milliseconds: 300),
                     child: Container(
@@ -539,13 +527,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                         child: InkWell(
                           borderRadius: BorderRadius.circular(25),
                           onTap: () async {
-                            // Loading sırasında tekrar tıklamayı önle
                             if (homeState.isLoading) return;
 
                             final isImageMode = _tabController.index == 0;
                             final textInput = _textInputController.text.trim();
 
-                            // VALIDATION (Kontroller)
                             if (isImageMode &&
                                 homeState.selectedImage == null) {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -564,8 +550,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                               return;
                             }
 
-                            // 1. ANALİZ İSTEĞİ (ViewModel)
-                            // Bu işlem 'await' ile cevabı bekler
                             final results = await viewModel.analyzeContent(
                               image: isImageMode
                                   ? homeState.selectedImage
@@ -573,7 +557,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                               text: !isImageMode ? textInput : null,
                             );
 
-                            // 2. REKLAM GÖSTERİMİ (Sadece Pro Değilse)
                             if (_interstitialAd != null) {
                               final adCompleter = Completer<void>();
                               _interstitialAd!.fullScreenContentCallback =
@@ -581,7 +564,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                     onAdDismissedFullScreenContent: (ad) {
                                       ad.dispose();
                                       adCompleter.complete();
-                                      _loadInterstitialAd(); // Bir sonraki için hazırla
+                                      _loadInterstitialAd();
                                     },
                                     onAdFailedToShowFullScreenContent:
                                         (ad, error) {
@@ -591,17 +574,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                         },
                                   );
                               _interstitialAd!.show();
-                              await adCompleter
-                                  .future; // Reklam bitene kadar bekle
+                              await adCompleter.future;
                             }
 
-                            // 3. SONUÇ İŞLEME VE YÖNLENDİRME
                             if (results.isNotEmpty && context.mounted) {
                               final dateStr = DateFormat(
                                 'dd MMM, HH:mm',
                               ).format(DateTime.now());
 
-                              // Veritabanı Modeli Oluştur
                               final newItem = HistoryItem(
                                 imagePath: isImageMode
                                     ? homeState.selectedImage!.path
@@ -611,7 +591,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                 previewText: results.first.text,
                               );
 
-                              // Veritabanına Kaydet
                               await ref
                                   .read(historyControllerProvider.notifier)
                                   .addHistoryItem(newItem);
@@ -663,7 +642,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
                   const SizedBox(height: 10),
 
-                  // 6. BANNER REKLAM (Pro ise gizle)
+                  // 6. BANNER REKLAM
                   if (_bannerAd != null && _isBannerLoaded)
                     FadeIn(
                       child: Center(

@@ -1,7 +1,7 @@
 {
     "appTitle": "Lafbaz.ai",
     "welcomeTitle": "Hello Lafbaz! 👋",
-    "welcomeSubtitle": "Who are we roasting?",
+    "welcomeSubtitle": "Which message are we analyzing?",
     "uploadText": "Drop Screenshot\nHere",
     "uploadSubText": "Whatsapp, Instagram or DM...",
     "modeSelection": "What's the Vibe? 🔥",
@@ -65,5 +65,8 @@
     "profile_save": "Save Changes",
     "profile_delete_account": "Delete Account",
     "profile_delete_desc": "This action cannot be undone.",
-    "profile_photo_edit": "Edit"
+    "profile_photo_edit": "Edit",
+    "text_area_hint": "Paste or type the message here...",
+    "settings_section_general": "General",
+    "settings_section_support": "Support & Legal"
 }

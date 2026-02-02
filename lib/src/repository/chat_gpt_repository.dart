@@ -6,8 +6,6 @@ import 'package:lafbaz_ai/src/model/chat_gpt_model.dart';
 class ChatGptRepository {
   late final Dio _dio;
 
-  static const String _port = "5191";
-
   ChatGptRepository() {
     _dio = Dio(
       BaseOptions(
@@ -21,15 +19,8 @@ class ChatGptRepository {
     );
   }
 
-  // Cihaza göre doğru adresi seçen getter
   String get _baseUrl {
-    if (Platform.isAndroid) {
-      // Android Emülatör için localhost
-      return "http://10.0.2.2:$_port/api/chat/sor";
-    } else {
-      // iOS Simülatör ve Gerçek Cihaz (bilgisayara bağlıysa) için
-      return "http://localhost:$_port/api/chat/sor";
-    }
+    return "http://84.32.230.159/api/chat/sor";
   }
 
   Future<List<Suggestion>> generateResponse({
