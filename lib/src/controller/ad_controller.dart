@@ -6,7 +6,6 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 final adServiceProvider = Provider((ref) => AdService());
 
 class AdService {
-  // Google Resmi Test Kimlikleri (Doğru)
   final String _bannerIdAndroid = 'ca-app-pub-3940256099942544/6300978111';
   final String _interstitialIdAndroid =
       'ca-app-pub-3940256099942544/1033173712';
@@ -49,8 +48,6 @@ class AdService {
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
           _interstitialAd = ad;
-          // Callback'leri burada tanımlamak yerine show anında tanımlayacağız
-          // ki onAdClosed fonksiyonunu tetikleyebilelim.
         },
         onAdFailedToLoad: (error) {
           debugPrint('Geçiş reklamı yüklenemedi: $error');
@@ -60,31 +57,26 @@ class AdService {
     );
   }
 
-  // --- REKLAMI GÖSTER (DÜZELTİLEN KISIM) ---
   void showInterstitialAd({VoidCallback? onAdClosed}) {
     if (_interstitialAd != null) {
-      // Callback'leri gösterim anında ayarlıyoruz
       _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
         onAdDismissedFullScreenContent: (ad) {
-          // Reklam kapatıldı -> İşleme devam et
-          ad.dispose();
-          _loadInterstitialAd(); // Bir sonraki için hazırla
-          if (onAdClosed != null) onAdClosed(); // ✅ EKSİK OLAN BUYDU
-        },
-        onAdFailedToShowFullScreenContent: (ad, error) {
-          // Reklam gösterilemedi -> Kullanıcıyı bekletme, devam et
           ad.dispose();
           _loadInterstitialAd();
-          if (onAdClosed != null) onAdClosed(); // ✅ BURASI DA EKLENDİ
+          if (onAdClosed != null) onAdClosed();
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          ad.dispose();
+          _loadInterstitialAd();
+          if (onAdClosed != null) onAdClosed();
         },
       );
 
       _interstitialAd!.show();
-      _interstitialAd = null; // Tekrar kullanılmasını engelle
+      _interstitialAd = null;
     } else {
-      // Reklam hazır değilse hiç bekletme, direkt devam et
       debugPrint("Reklam hazır değil, işlem devam ediyor.");
-      if (onAdClosed != null) onAdClosed(); // ✅ BURASI DA EKLENDİ
+      if (onAdClosed != null) onAdClosed();
     }
   }
 }

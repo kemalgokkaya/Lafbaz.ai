@@ -33,8 +33,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   InterstitialAd? _interstitialAd;
 
   // Test ID'leri
-  final String _bannerUnitId = 'ca-app-pub-3940256099942544/6300978111';
-  final String _interstitialUnitId = 'ca-app-pub-3940256099942544/1033173712';
+  final String _bannerUnitId = 'ca-app-pub-3323165490285936/3281763632';
+  final String _interstitialUnitId = 'ca-app-pub-3323165490285936/6235230036';
 
   @override
   void initState() {
