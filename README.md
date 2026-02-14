@@ -1,4 +1,4 @@
-Merhaba! **Lafbaz.ai**, sıradan bir sohbet botu olmanın ötesinde; hem **fotoğrafları** hem de **metinleri** analiz edebilen çok modlu (multimodal) bir yapay zeka asistanıdır.
+Merhaba! **Lafbaz.ai**, sıradan bir sohbet botu olmanın ötesinde; hem **fotoğrafları** hem de **metinleri** analiz edebilen çok modlu bir yapay zeka asistanıdır.
 
 Bu projeyi geliştirirken uçtan uca (End-to-End) bir **Full-Stack** yaklaşımı benimsedim. Mobil tarafta **Flutter**'ın akıcı arayüz yeteneklerini, Backend tarafında ise **.NET 10 Web API**'nin gücünü ve güvenliğini kullandım.
 
