@@ -14,6 +14,16 @@ rootProject.layout.buildDirectory.value(newBuildDir)
 subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
+
+    // Fix for "different roots" error when project is on D: and cache on C:
+    // This disables unit tests for plugins, which causes the path calculation failure.
+    afterEvaluate {
+        if (project.name != "app") {
+            tasks.matching { it.name.contains("UnitTest") }.configureEach {
+                enabled = false
+            }
+        }
+    }
 }
 subprojects {
     project.evaluationDependsOn(":app")

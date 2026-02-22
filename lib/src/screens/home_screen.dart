@@ -97,7 +97,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     final Color primaryColor = const Color(0xFF6C63FF);
     final Color secondaryColor = const Color(0xFFFF6584);
     final Color backgroundColor = const Color(0xFFF3F5F9);
-    final Color titleColor = const Color(0xFF2D3142); // Başlık için koyu renk
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -143,7 +142,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                 shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(0.05),
+                                    color: Colors.black.withValues(alpha: 0.05),
                                     blurRadius: 10,
                                     offset: const Offset(0, 2),
                                   ),
@@ -192,7 +191,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                               borderRadius: BorderRadius.circular(15),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.05),
+                                  color: Colors.black.withValues(alpha: 0.05),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 ),
@@ -223,7 +222,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                         borderRadius: BorderRadius.circular(30),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
+                            color: Colors.grey.withValues(alpha: 0.1),
                             blurRadius: 10,
                           ),
                         ],
@@ -237,7 +236,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                           borderRadius: BorderRadius.circular(25),
                           boxShadow: [
                             BoxShadow(
-                              color: primaryColor.withOpacity(0.3),
+                              color: primaryColor.withValues(alpha: 0.3),
                               blurRadius: 8,
                               offset: const Offset(0, 3),
                             ),
@@ -279,7 +278,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                 border: Border.all(color: Colors.grey.shade100),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: primaryColor.withOpacity(0.08),
+                                    color: primaryColor.withValues(alpha: 0.08),
                                     blurRadius: 20,
                                     offset: const Offset(0, 10),
                                   ),
@@ -296,8 +295,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                             fit: BoxFit.cover,
                                           ),
                                           Container(
-                                            color: Colors.black.withOpacity(
-                                              0.2,
+                                            color: Colors.black.withValues(
+                                              alpha: 0.2,
                                             ),
                                             child: const Center(
                                               child: Icon(
@@ -317,8 +316,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                         Container(
                                           padding: const EdgeInsets.all(20),
                                           decoration: BoxDecoration(
-                                            color: primaryColor.withOpacity(
-                                              0.1,
+                                            color: primaryColor.withValues(
+                                              alpha: 0.1,
                                             ),
                                             shape: BoxShape.circle,
                                           ),
@@ -352,7 +351,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                               border: Border.all(color: Colors.grey.shade100),
                               boxShadow: [
                                 BoxShadow(
-                                  color: primaryColor.withOpacity(0.08),
+                                  color: primaryColor.withValues(alpha: 0.08),
                                   blurRadius: 20,
                                   offset: const Offset(0, 10),
                                 ),
@@ -400,8 +399,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                         ),
                                       ),
                                       style: TextButton.styleFrom(
-                                        backgroundColor: Colors.red.withOpacity(
-                                          0.1,
+                                        backgroundColor: Colors.red.withValues(
+                                          alpha: 0.1,
                                         ),
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
@@ -469,8 +468,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                                     boxShadow: isSelected
                                         ? [
                                             BoxShadow(
-                                              color: primaryColor.withOpacity(
-                                                0.4,
+                                              color: primaryColor.withValues(
+                                                alpha: 0.4,
                                               ),
                                               blurRadius: 10,
                                               offset: const Offset(0, 4),
@@ -516,7 +515,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                         borderRadius: BorderRadius.circular(25),
                         boxShadow: [
                           BoxShadow(
-                            color: secondaryColor.withOpacity(0.4),
+                            color: secondaryColor.withValues(alpha: 0.4),
                             blurRadius: 15,
                             offset: const Offset(0, 8),
                           ),
@@ -594,6 +593,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                               await ref
                                   .read(historyControllerProvider.notifier)
                                   .addHistoryItem(newItem);
+
+                              if (!context.mounted) return;
 
                               context.router.push(
                                 ResultRoute(suggestions: results),

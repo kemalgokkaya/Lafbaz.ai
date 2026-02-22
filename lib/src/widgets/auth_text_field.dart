@@ -24,7 +24,7 @@ class AuthTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.05),
+            color: Colors.grey.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -42,7 +42,7 @@ class AuthTextField extends StatelessWidget {
           ),
           prefixIcon: Icon(
             icon,
-            color: const Color(0xFF6C63FF).withOpacity(0.6),
+            color: const Color(0xFF6C63FF).withValues(alpha: 0.6),
           ),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(

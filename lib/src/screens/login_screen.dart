@@ -93,11 +93,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               margin: const EdgeInsets.only(right: 20, top: 10),
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.9),
+                color: Colors.white.withValues(alpha: 0.9),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -174,7 +174,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: primaryColor.withOpacity(0.25),
+                                color: primaryColor.withValues(alpha: 0.25),
                                 blurRadius: 30,
                                 spreadRadius: 5,
                                 offset: const Offset(0, 10),
@@ -285,7 +285,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                color: secondaryColor.withOpacity(0.4),
+                                color: secondaryColor.withValues(alpha: 0.4),
                                 blurRadius: 15,
                                 offset: const Offset(0, 8),
                               ),
@@ -336,7 +336,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               horizontal: 20,
                               vertical: 12,
                             ),
-                            backgroundColor: primaryColor.withOpacity(0.05),
+                            backgroundColor: primaryColor.withValues(
+                              alpha: 0.05,
+                            ),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),

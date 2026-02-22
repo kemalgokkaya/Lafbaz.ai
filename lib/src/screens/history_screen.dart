@@ -195,7 +195,7 @@ class HistoryScreen extends ConsumerWidget {
                   height: 65,
                   width: 65,
                   decoration: BoxDecoration(
-                    color: cardColor.withOpacity(0.1),
+                    color: cardColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: ClipRRect(
@@ -235,7 +235,7 @@ class HistoryScreen extends ConsumerWidget {
                               vertical: 4,
                             ),
                             decoration: BoxDecoration(
-                              color: cardColor.withOpacity(0.1),
+                              color: cardColor.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(

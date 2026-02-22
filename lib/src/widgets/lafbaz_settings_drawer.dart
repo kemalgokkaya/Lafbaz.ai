@@ -50,7 +50,7 @@ class LafbazDrawer extends ConsumerWidget {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: primaryColor.withOpacity(0.3),
+                        color: primaryColor.withValues(alpha: 0.3),
                         blurRadius: 20,
                         offset: const Offset(0, 10),
                       ),
@@ -75,7 +75,7 @@ class LafbazDrawer extends ConsumerWidget {
                           child: Container(
                             padding: const EdgeInsets.all(3),
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.3),
+                              color: Colors.white.withValues(alpha: 0.3),
                               shape: BoxShape.circle,
                             ),
                             child: CircleAvatar(
@@ -123,7 +123,7 @@ class LafbazDrawer extends ConsumerWidget {
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.2),
+                                    color: Colors.white.withValues(alpha: 0.2),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
@@ -210,7 +210,7 @@ class LafbazDrawer extends ConsumerWidget {
                       icon: Icons.logout_rounded,
                       text: "settings_logout".tr(),
                       accentColor: Colors.redAccent,
-                      bgColor: Colors.red.withOpacity(0.05),
+                      bgColor: Colors.red.withValues(alpha: 0.05),
                       onTap: () async {
                         // 1. Kullanıcı verilerini sil (Sıfırla)
                         await ref
@@ -279,7 +279,7 @@ class LafbazDrawer extends ConsumerWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 5,
             offset: const Offset(0, 2),
           ),
@@ -297,7 +297,7 @@ class LafbazDrawer extends ConsumerWidget {
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: accentColor.withOpacity(0.1),
+                    color: accentColor.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(icon, color: accentColor, size: 24),

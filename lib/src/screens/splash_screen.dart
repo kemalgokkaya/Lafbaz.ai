@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.15),
+                      color: Colors.black.withValues(alpha: 0.15),
                       blurRadius: 30,
                       spreadRadius: 5,
                       offset: const Offset(0, 10),
@@ -90,7 +90,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   letterSpacing: 1.2,
                   shadows: [
                     Shadow(
-                      color: Colors.black.withOpacity(0.2),
+                      color: Colors.black.withValues(alpha: 0.2),
                       offset: const Offset(0, 4),
                       blurRadius: 10,
                     ),
@@ -109,7 +109,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 "Yapay Zeka Cevap Asistanı",
                 style: GoogleFonts.poppins(
                   fontSize: 16,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                   letterSpacing: 0.5,
                   fontWeight: FontWeight.w500,
                 ),
@@ -124,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 50.0),
                 child: CircularProgressIndicator(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withValues(alpha: 0.8),
                   strokeWidth: 3,
                 ),
               ),
