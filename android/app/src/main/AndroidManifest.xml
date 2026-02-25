@@ -35,7 +35,15 @@
             
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3323165490285936~7159437075"/>
+            android:value="ca-app-pub-3323165490285936~7159437075" />
+
+        <meta-data
+            android:name="io.flutter.embedding.android.DisableVulkan"
+            android:value="true" />
+            
+        <meta-data
+            android:name="io.flutter.embedding.android.EnableImpeller"
+            android:value="false" />
             
     </application>
     

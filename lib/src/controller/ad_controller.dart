@@ -10,8 +10,8 @@ class AdService {
   final String _interstitialIdAndroid =
       'ca-app-pub-3940256099942544/1033173712';
 
-  final String _bannerIdIOS = 'ca-app-pub-3940256099942544/2934735716';
-  final String _interstitialIdIOS = 'ca-app-pub-3940256099942544/4411468910';
+  final String _bannerIdIOS = 'ca-app-pub-3940256099942544/6300978111';
+  final String _interstitialIdIOS = 'ca-app-pub-3940256099942544/1033173712';
 
   String get bannerAdUnitId =>
       Platform.isAndroid ? _bannerIdAndroid : _bannerIdIOS;
@@ -21,6 +21,16 @@ class AdService {
   InterstitialAd? _interstitialAd;
 
   Future<void> init() async {
+    // Test cihazı tanımlama (Gerçek ID'lerin test cihazında çalışması için)
+    // Terminalde 'To get test ads on this device, call: MobileAds.instance.updateRequestConfiguration...'
+    // şeklinde çıkan ID'yi buraya eklemelisiniz.
+    RequestConfiguration configuration = RequestConfiguration(
+      testDeviceIds: [
+        "PLACEHOLDER_TEST_DEVICE_ID",
+      ], // Kendi Test ID'nizi buraya ekleyin
+    );
+    await MobileAds.instance.updateRequestConfiguration(configuration);
+
     await MobileAds.instance.initialize();
     _loadInterstitialAd();
   }

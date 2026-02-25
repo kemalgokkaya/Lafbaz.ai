@@ -33,8 +33,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   InterstitialAd? _interstitialAd;
 
   // Test ID'leri
-  final String _bannerUnitId = 'ca-app-pub-3323165490285936/3281763632';
-  final String _interstitialUnitId = 'ca-app-pub-3323165490285936/6235230036';
+  final String _bannerUnitId = 'ca-app-pub-3323165490285936/6179074421';
+  final String _interstitialUnitId = 'ca-app-pub-3323165490285936/2896608410';
 
   @override
   void initState() {
@@ -50,8 +50,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       request: const AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(
-        onAdLoaded: (ad) => setState(() => _isBannerLoaded = true),
-        onAdFailedToLoad: (ad, err) => ad.dispose(),
+        onAdLoaded: (ad) {
+          debugPrint('AdMob: Banner yüklendi.');
+          setState(() => _isBannerLoaded = true);
+        },
+        onAdFailedToLoad: (ad, err) {
+          debugPrint(
+            'AdMob: Banner yüklenemedi! Error Code: ${err.code}, Message: ${err.message}',
+          );
+          // Error Code 3 (No Fill) analizi için bu log kritik.
+          ad.dispose();
+        },
       ),
     )..load();
   }
@@ -649,8 +658,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                       child: Center(
                         child: Container(
                           margin: const EdgeInsets.only(top: 10),
-                          width: _bannerAd!.size.width.toDouble(),
-                          height: _bannerAd!.size.height.toDouble(),
+                          width: 320,
+                          height: 50,
                           child: AdWidget(ad: _bannerAd!),
                         ),
                       ),
