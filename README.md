@@ -1,44 +1,84 @@
-Merhaba! **Lafbaz.ai**, sıradan bir sohbet botu olmanın ötesinde; hem **fotoğrafları** hem de **metinleri** analiz edebilen çok modlu bir yapay zeka asistanıdır.
+# Lafbaz.ai
 
-Bu projeyi geliştirirken uçtan uca (End-to-End) bir **Full-Stack** yaklaşımı benimsedim. Mobil tarafta **Flutter**'ın akıcı arayüz yeteneklerini, Backend tarafında ise **.NET 10 Web API**'nin gücünü ve güvenliğini kullandım.
+Lafbaz.ai, metin ve görsel analizi tek mobil deneyimde birleştiren, persona tabanlı bir AI assistant uygulamasıdır. Bu projede Flutter tarafında modern ürün deneyimi, backend tarafında ise güvenli servis ve veri akışı yaklaşımını bir araya getirdim.
 
-Lafbaz'ı özel kılan şey, "Ruh Hali Modları"dır. O anki modunuza göre size **Karizmatik**, **Diplomatik** veya **Esprili** yanıtlar verebilir.
+## Proje Özeti
 
- ✨ Öne Çıkan Özellikler
+- Flutter ile geliştirilen çok modlu AI mobil uygulaması
+- OpenAI destekli metin ve görsel analiz deneyimi
+- Persona sistemi ile farklı iletişim tonları
+- Firebase, Sqflite ve .NET Web API ile hibrit veri mimarisi
+- Google Play yayını hedefiyle ürün seviyesinde kurgulanan yapı
 
-* **🧠 Çoklu Analiz Yeteneği:** OpenAI GPT-4o Vision entegrasyonu sayesinde yüklenen fotoğrafları yorumlar ve soruları yanıtlar.
-* **🎭 Persona Sistemi:** Yapay zeka, seçilen moda göre karakter değiştirir:
-    * *Karizmatik Mod* (Etkileyici ve lider ruhlu)
-    * *Diplomatik Mod* (Kibar ve çözüm odaklı)
-    * *Esprili Mod* (Eğlenceli ve şakacı)
-* **💬 Geçmiş Yönetimi:** Sohbet geçmişini yerelde (Sqflite) ve bulutta (Firebase) senkronize tutar.
-* **🌍 Çoklu Dil Desteği:** Türkçe (TR) ve İngilizce (EN) tam destek.
-  
-  Bu projeyi geliştirirken modern yazılım mimarilerine ve güncel kütüphanelere sadık kaldım.
+## Öne Çıkan Özellikler
 
-### Mobile (Flutter)
-* **Framework:** Flutter & Dart
-* **Mimari:** Clean Architecture 
-* **State Management:** Riverpod (Reaktif durum yönetimi)
-* **Navigasyon:** AutoRoute
-* **Veri Yönetimi:** Sqflite (Yerel) & Firebase (Bulut)
-* **Localization:** Easy Localization
-* **UI/UX:** Animate Do, Google Fonts, Lottie Animasyonları
-* **Servisler:** RevenueCat (IAP), Google Mobile Ads
+- Fotoğraf analizi ve yorumlama
+- Metin tabanlı analiz ve öneri üretimi
+- Karizmatik, Diplomatik ve Esprili persona modları
+- Geçmiş kayıtları için local + cloud senkronizasyonu
+- Türkçe ve İngilizce dil desteği
+- RevenueCat abonelik yönetimi
+- Google Mobile Ads entegrasyonu
+- Daha modern his veren animasyon, shimmer ve glassmorphism bileşenleri
 
+## Kullandığım Teknolojiler
 
-### Backend (.NET Core)
-* **Framework:** ASP.NET Core Web API (**poje .NET 10 sürümü ile geliştirilmiştir**)
-* **Dil:** C#
-* **AI Motoru:** OpenAI API (GPT-4o-mini)
-* **Veritabanı:** Google Firebase (Firestore)
-![lafbaz1](https://github.com/user-attachments/assets/e8cc657f-ba97-48a2-be15-41a376786319)
-![lafbaz2](https://github.com/user-attachments/assets/f4c3a311-7061-423d-8b5b-cb21a9551f0a)
-![lafbaz3](https://github.com/user-attachments/assets/5bf1f7c8-0b46-43e5-8781-b8ae28d3b71d)
-![lafbaz4](https://github.com/user-attachments/assets/189a1a5f-0cff-4219-9863-b5f3d9ff8ac1)
-![lafbaz5](https://github.com/user-attachments/assets/2b4b6462-1ca4-45a5-93b3-818096c4141f)
+### Mobile
 
+- Flutter
+- Dart
+- Riverpod
+- AutoRoute
+- Firebase Auth
+- Cloud Firestore
+- Firebase Storage
+- Sqflite
+- Easy Localization
+- Lottie
+- Animate Do
 
+### Backend / Services
 
+- .NET Web API
+- OpenAI API
+- RevenueCat
+- Google Mobile Ads
 
+## Mimari Yaklaşım
 
+Projede ekran, controller, repository ve model ayrımını net tutmaya çalıştım. Amaç sadece çalışan bir demo üretmek değil; büyüyebilen, bakım yapılabilen ve gerçek kullanıcı trafiğine yaklaşabilecek bir yapı kurmaktı.
+
+Özellikle şu alanlara odaklandım:
+
+- Ölçeklenebilir ekran ve yönlendirme yapısı
+- Ayrıştırılmış veri erişim katmanları
+- Tekrar kullanılabilir özel widget sistemi
+- Daha güçlü loading / success / result akışları
+- Kullanıcı deneyimini iyileştiren animasyon detayları
+
+## Benim Katkım
+
+- Ürün fikrinin kurgulanması
+- Mobil uygulama mimarisinin oluşturulması
+- Persona deneyiminin tasarlanması
+- OpenAI akışlarının mobil deneyime bağlanması
+- History ve result akışlarının yapılandırılması
+- Monetization tarafında AdMob ve RevenueCat entegrasyonu
+
+## Ekran Görüntüleri
+
+![Lafbaz ekran 1](https://github.com/user-attachments/assets/e8cc657f-ba97-48a2-be15-41a376786319)
+![Lafbaz ekran 2](https://github.com/user-attachments/assets/f4c3a311-7061-423d-8b5b-cb21a9551f0a)
+![Lafbaz ekran 3](https://github.com/user-attachments/assets/5bf1f7c8-0b46-43e5-8781-b8ae28d3b71d)
+![Lafbaz ekran 4](https://github.com/user-attachments/assets/189a1a5f-0cff-4219-9863-b5f3d9ff8ac1)
+![Lafbaz ekran 5](https://github.com/user-attachments/assets/2b4b6462-1ca4-45a5-93b3-818096c4141f)
+
+## Neden Bu Proje Önemli?
+
+Lafbaz.ai benim için sadece bir uygulama değil; mobil geliştirme, AI entegrasyonu, ürün tasarımı ve gelir modeli düşüncesini aynı projede birleştirdiğim en güçlü vaka çalışması.
+
+## İletişim
+
+- GitHub: [github.com/kemalgokkaya](https://github.com/kemalgokkaya)
+- Portfolyo: [portfolyo-jade-six.vercel.app](https://portfolyo-jade-six.vercel.app)
+- E-posta: [kemalgokkaya8@gmail.com](mailto:kemalgokkaya8@gmail.com)
